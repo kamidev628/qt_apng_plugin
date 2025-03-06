@@ -1,18 +1,93 @@
-# QtApng
-apng image plugin for Qt to support animated PNGs
+# 🎨 Qt APNG Plugin  
 
-## Features
-Enable the usage of apng images with Qt. The plugin adds the apng format as a new format for any Qt application, and thus supports loading of apng images via `QMovie`, `AnimatedImage` and other types.
+🖼 **A Qt plugin for Animated PNG (APNG) support**, enabling seamless animation rendering in Qt applications!  
 
-## Requirements
-To build the plugin, libpng with the apng patch applied is required. By default the libpng provided by `pkg-config` is used for unix-like systems. If the library is not available, the project will compile a static library of libpng and embed it into the plugin. You can force this behaviour by running qmake with `CONFIG += libpng_static`
+![Qt](https://img.shields.io/badge/Qt-6-green) ![C++](https://img.shields.io/badge/Language-C++-blue) ![APNG](https://img.shields.io/badge/Format-APNG-orange)  
+![GitHub stars](https://img.shields.io/github/stars/kamidev628/qt_apng_plugin?style=social) ![GitHub forks](https://img.shields.io/github/forks/kamidev628/qt_apng_plugin?style=social)  
 
-## Usage
-Simply use the default Qt classes like `QImageReader`, `QMovie` etc. and open the apng files just like you would open normal images/animations (like gif files)
+---
 
-**Format Detection:**
-Since the png format is already used by Qt, `*.png` files will **not** use the plugin. To load a png as animated, you can either rename the file to `*.apng`, or set the format explicitly
+## ✨ Features  
 
-```cpp
-QMovie movie("path/to/image.png", "apng");
+✅ **APNG (Animated PNG) support** – Load and display APNG files in Qt  
+✅ **Seamless Integration** – Works as a Qt image plugin (`QImageIOPlugin`)  
+✅ **Efficient Rendering** – Optimized for performance  
+✅ **Cross-Platform** – Works on Windows, macOS, and Linux  
+
+---
+
+## 🚀 Installation & Build  
+
+### 1️⃣ Prerequisites  
+Ensure you have:  
+- **Qt 6+** installed  
+- A **C++ compiler** (GCC, MSVC, Clang, etc.)  
+- **CMake**  
+
+### 2️⃣ Clone & Build  
+```sh
+git clone https://github.com/kamidev628/qt_apng_plugin.git
+cd qt_apng_plugin
+mkdir build && cd build
+cmake ..
+make
 ```
+
+### 3️⃣ Install the Plugin  
+Move the compiled plugin to your Qt plugins directory:  
+```sh
+cp libqapng.so /path/to/Qt/plugins/imageformats/
+```
+
+---
+
+## 🔥 Usage  
+
+### 🛠 Loading an APNG in Qt  
+```cpp
+#include <QImage>
+#include <QMovie>
+#include <QLabel>
+
+// Load APNG as a QMovie
+QMovie *movie = new QMovie("animated_image.apng");
+QLabel *label = new QLabel;
+label->setMovie(movie);
+movie->start();
+label->show();
+```
+
+---
+
+## 🎯 Roadmap  
+
+- [ ] Add **frame delay customization**  
+- [ ] Improve **performance optimizations**  
+- [ ] Add **APNG encoding support**  
+
+---
+
+## 🤝 Contributing  
+
+Want to improve this plugin? Contributions are welcome!  
+
+1. **Fork** the repository  
+2. **Clone** your fork  
+3. Create a new **feature branch**  
+4. Submit a **Pull Request** 🎉  
+
+For more details, see [CONTRIBUTING.md](CONTRIBUTING.md).  
+
+---
+
+## 📜 License  
+
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.  
+
+---
+
+## ⭐ Support  
+
+If you find this project useful, please **⭐ Star** the repository and share it!  
+
+📧 **Contact:** marcin.nowak.0628@proton.me
