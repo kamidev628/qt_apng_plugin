@@ -90,4 +90,3 @@ This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for d
 
 If you find this project useful, please **⭐ Star** the repository and share it!  
 
-📧 **Contact:** marcin.nowak.0628@proton.me
